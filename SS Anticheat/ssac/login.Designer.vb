@@ -38,9 +38,9 @@ Partial Class login
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(217, 13)
+        Me.Label1.Size = New System.Drawing.Size(136, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Clan Tag (Without '[' & ']' Example - Ex7 or A2)"
+        Me.Label1.Text = "Clan Tag ( Example - NITE)"
         '
         'Label2
         '

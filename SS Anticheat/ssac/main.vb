@@ -4,8 +4,8 @@ Imports Ionic
 Public Class main
     Dim SAPI = CreateObject("SAPI.Spvoice")
     Dim zipper As New Ionic.Zip.ZipFile
-    Dim filename As String = login.clantag & "-" & login.playerign & Date.Now.ToString("ddMMyyyy") & "M" & login.matchno & "G" & login.gameno & ".ssac"
-    Dim filename2 As String = login.clantag & "-" & login.playerign & Date.Now.ToString("ddMMyyyy") & "M" & login.matchno & "G" & login.gameno & "(1).ssac"
+    'File name example - NITE-Pavitra-29071999-1-1.ssac
+    Dim filename As String = login.clantag & "-" & login.playerign & "-" & Date.Now.ToString("ddMMyyyy") & "-" & login.matchno & "-" & login.gameno & ".ssac"
 
     Public Shared Sub screenCapture()
         Dim userName As String = login.clantag & "-" & login.playerign
@@ -43,7 +43,9 @@ Public Class main
         'Button1.Enabled = True
         'SAPI.speak("SSAC Stopped")
         createUploadFile()
-        MessageBox.Show("Upload File Created - " & filename & vbCrLf & "Please keep the above file in a safe location as you ll have to give this file to you clan leader , The Program will now restart for new match/game.")
+        MessageBox.Show("Upload File Created - " & filename & vbCrLf & "Please wait file we upload the file to our secure server, make sure internet is stable.")
+        My.Computer.Network.UploadFile(filename, "http://localhost/ssac/upload.php")
+        MessageBox.Show("File uploaded.")
         Application.Restart()
 
     End Sub
@@ -62,6 +64,9 @@ Public Class main
         Dim di As New IO.DirectoryInfo(folder)
         Dim aryFi As IO.FileInfo() = di.GetFiles("*.png")
         Dim fi As IO.FileInfo
+        'Add password protection to the modified zip package
+        zipper.Password = "ae56929f9bc01b3f029f11ce9b3eba43" 'Random password
+
         For Each fi In aryFi
             ' Try
             zipper.AddFile(folder & "\" & fi.Name, "ss")
@@ -78,8 +83,8 @@ Public Class main
         Try
             zipper.Save(filename)
         Catch e As Exception
-            MessageBox.Show("May be the file exists as you havent relocated the previous file, new file will save as " & filename2 & vbCrLf & "And please be sure to relocate it this time, as this time it wont work, you ll be regarded as a hacker/foul player")
-            zipper.Save(filename2)
+            My.Computer.FileSystem.DeleteFile(filename)
+            zipper.Save(filename)
         End Try
         deleteSS()
 

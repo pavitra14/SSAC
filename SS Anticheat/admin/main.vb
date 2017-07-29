@@ -37,6 +37,7 @@ Public Class main
         End With
 
         Using zip1 As Ionic.Zip.ZipFile = Ionic.Zip.ZipFile.Read(filename)
+            zip1.Password = "ae56929f9bc01b3f029f11ce9b3eba43" 'Password used to encrypt the package.
             Dim extract As Ionic.Zip.ZipEntry
             ' here, we extract every entry, but we could extract    
             ' based on entry name, size, date, etc.   

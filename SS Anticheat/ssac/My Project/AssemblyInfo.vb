@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ssac")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyTitle("SSAC")> 
+<Assembly: AssemblyDescription("Screenshot Anticheat")> 
+<Assembly: AssemblyCompany("Pavitra Behre")> 
 <Assembly: AssemblyProduct("ssac")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
+<Assembly: AssemblyCopyright("Copyright ©  2017")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
